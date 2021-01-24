@@ -1,0 +1,144 @@
+.random-matcher {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  font-family: "Nanum Gothic", Arial; }
+  .random-matcher .setting-panel {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 600px;
+    border: 1px solid #000;
+    float: left;
+    position: absolute; }
+    .random-matcher .setting-panel.hide {
+      display: none; }
+    .random-matcher .setting-panel .data-field {
+      height: 555px;
+      width: 580px;
+      padding: 5px;
+      margin: 5px;
+      font-family: inherit; }
+    .random-matcher .setting-panel .setting-button-area {
+      text-align: right; }
+      .random-matcher .setting-panel .setting-button-area .btn {
+        height: 25px;
+        margin-right: 10px; }
+        .random-matcher .setting-panel .setting-button-area .btn.primary {
+          background-color: navy;
+          color: #fff; }
+  .random-matcher .game-area {
+    flex: 1;
+    width: 100%;
+    height: 100%; }
+    .random-matcher .game-area .candidate-list,
+    .random-matcher .game-area .group-list {
+      display: flex;
+      flex-direction: row; }
+    .random-matcher .game-area .btn.match-btn {
+      width: 300px;
+      height: 100px;
+      position: absolute;
+      top: calc(50% - 50px);
+      left: calc(50% - 150px);
+      font-size: 50px; }
+      .random-matcher .game-area .btn.match-btn.re-match {
+        left: unset;
+        top: 0;
+        right: 0;
+        width: auto;
+        height: auto;
+        font-size: 20px;
+        opacity: 0.5; }
+    .random-matcher .game-area .candidate-list {
+      margin-top: auto;
+      bottom: 0;
+      left: 0;
+      margin-bottom: 0;
+      position: absolute; }
+    .random-matcher .game-area .group-list {
+      margin-top: 0;
+      top: 0;
+      left: 0;
+      margin-bottom: auto;
+      position: absolute; }
+    .random-matcher .game-area .group-item {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: flex-end;
+      text-align: center; }
+      .random-matcher .game-area .group-item .group-image {
+        background-color: #fff;
+        width: 100%;
+        border-radius: 50%; }
+      .random-matcher .game-area .group-item .group-name {
+        width: 100%;
+        background-color: #fff;
+        font-size: 25px; }
+    .random-matcher .game-area .result-wrapper {
+      background-color: rgba(255, 255, 255, 0.8);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      z-index: 100; }
+      .random-matcher .game-area .result-wrapper .button-wrapper {
+        position: absolute;
+        top: 90%;
+        left: calc(50% - 150px); }
+        .random-matcher .game-area .result-wrapper .button-wrapper .btn {
+          width: 300px;
+          height: 100px;
+          font-size: 50px; }
+          .random-matcher .game-area .result-wrapper .button-wrapper .btn .next-btn {
+            background-color: dodgerblue;
+            color: #fff; }
+      .random-matcher .game-area .result-wrapper .couple-wrapper {
+        margin: 10% 15%;
+        display: flex;
+        flex-direction: row;
+        background-color: #fff;
+        border-radius: 10px; }
+        .random-matcher .game-area .result-wrapper .couple-wrapper.invisible {
+          opacity: 0; }
+        .random-matcher .game-area .result-wrapper .couple-wrapper .group-item {
+          margin: 5%; }
+          .random-matcher .game-area .result-wrapper .couple-wrapper .group-item .group-name {
+            font-size: 42px; }
+    .random-matcher .game-area .transition-show {
+      transition: opacity 2s; }
+    .random-matcher .game-area.result-credit {
+      display: flex;
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 200; }
+      .random-matcher .game-area.result-credit .credit-wrapper {
+        margin: 10px 0 0 10px;
+        display: block;
+        text-align: center; }
+        .random-matcher .game-area.result-credit .credit-wrapper .couple-wrapper {
+          display: inline-flex;
+          margin: 50px 40px;
+          height: 200px;
+          width: 400px; }
+          .random-matcher .game-area.result-credit .credit-wrapper .couple-wrapper .group-name {
+            border-radius: 3px;
+            margin: 10px auto;
+            padding: 0 10px;
+            width: auto; }
+  .random-matcher .hide {
+    display: none !important; }
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%; }
+
