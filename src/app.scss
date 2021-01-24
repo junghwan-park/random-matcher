@@ -43,7 +43,6 @@
 
     .game-area {
         flex: 1;
-        border: 1px solid #000;
         width: 100%;
         height: 100%;
 
@@ -53,11 +52,37 @@
             flex-direction: row;
         }
 
+        .btn {
+            &.match-btn {
+                width: 300px;
+                height: 100px;
+                position: absolute;
+                top: calc(50% - 50px);
+                left: calc(50% - 150px);
+                font-size: 50px;
+            }
+        }
+
+        .candidate-list {
+            margin-top: auto;
+            bottom: 0;
+            left: 0;
+            margin-bottom: 0;
+            position: absolute;
+        }
+
+        .group-list {
+            margin-top: 0;
+            top: 0;
+            left: 0;
+            margin-bottom: auto;
+            position: absolute;
+        }
+
         .group-item {
             display:flex;
             flex: 1;
             flex-direction: column;
-            border: 1px solid #000000;
             justify-content: flex-end;
             text-align: center;
 
@@ -69,5 +94,59 @@
                 width: 100%;
             }
         }
+
+        .result-wrapper {
+            background-color: rgba(255,255,255, 0.7);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+
+            .button-wrapper {
+                position: absolute;
+                top: 70%;
+                left: calc(50% - 150px);
+
+                .btn {
+                    width: 300px;
+                    height: 100px;
+                    font-size: 50px;
+
+                    .next-btn {
+                        background-color: dodgerblue;
+                        color: #fff;
+                    }
+                }
+            }
+
+            .couple-wrapper {
+                margin: 10%;
+                display: flex;
+                flex-direction: row;
+
+                &.invisible {
+                    opacity: 0;
+                }
+
+                .group-item {
+                    .group-image {
+                    }
+                    .group-name {
+                    }
+                }
+            }
+        }
+
+        .transition-show {
+            transition: opacity 2s;
+        }
+    }
+
+    .hide {
+        display: none !important;
     }
 }

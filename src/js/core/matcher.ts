@@ -7,8 +7,6 @@ export type MatchResults = Array<IdPair>;
 export default class Matcher {
   appState: AppState;
 
-  results: MatchResults = [];
-
   constructor(appState: AppState) {
     this.appState = appState;
   }
@@ -97,7 +95,7 @@ export default class Matcher {
       results = this.matchSimple(this.groups, this.candidates);
     }
 
-    this.results = results;
+    this.appState.state.results = results;
 
     return results;
   }

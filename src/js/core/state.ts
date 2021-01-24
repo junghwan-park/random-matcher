@@ -1,3 +1,5 @@
+import { MatchResults } from '@/js/core/matcher';
+
 export type Priority = {
   id: string;
 };
@@ -23,6 +25,7 @@ type State = {
   groups: Groups;
   candidates: Groups;
   priorities: Priorities;
+  results: MatchResults;
 };
 
 const defaultState = {

@@ -1,9 +1,12 @@
 import SettingPanel from '@/js/ui/settingPanel';
 import GameArea from '@/js/ui/gameArea';
 import { AppState } from '@/js/core/state';
+import Matcher from '@/js/core/matcher';
 
 export default class UI {
   appState: AppState;
+
+  matcher: Matcher;
 
   wrapperElement: HTMLElement | null;
 
@@ -11,8 +14,9 @@ export default class UI {
 
   gameArea: GameArea;
 
-  constructor(selector: string, appState: AppState) {
+  constructor(selector: string, appState: AppState, matcher: Matcher) {
     this.appState = appState;
+    this.matcher = matcher;
 
     const wrapperElement: HTMLElement | null = document.querySelector(selector);
 
@@ -24,7 +28,7 @@ export default class UI {
     this.wrapperElement.className = 'random-matcher';
 
     this.settingPanel = new SettingPanel(this.appState);
-    this.gameArea = new GameArea(this.appState);
+    this.gameArea = new GameArea(this.appState, this.matcher);
   }
 
   render(): void {

@@ -12,7 +12,7 @@ export default class App {
   constructor(selector: string) {
     this.appState = State;
     this.matcher = new Matcher(this.appState);
-    this.ui = new UI(selector, this.appState);
+    this.ui = new UI(selector, this.appState, this.matcher);
 
     this.render();
   }
