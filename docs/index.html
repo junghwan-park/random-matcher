@@ -9,7 +9,148 @@
     <body>
         <div id="app"></div>
         <script>
-            var randomMatcher = new window.RandomMatcher('#app');
+          var data = {
+            results: [],
+            priorities: [{id: 'G'}, {id: 'W'}],
+            groups: [
+              {
+                id: '1',
+                name: '박정환',
+                priorityId: 'none',
+                imgSrc: 'https://img.hankyung.com/photo/201903/AA.19067065.1.jpg',
+                type: 'mentor',
+              },
+              {
+                id: '2',
+                name: '윤덕현',
+                priorityId: 'none',
+                imgSrc:
+                  'https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile27.uf.tistory.com%2Fimage%2F22649A365925608E3B0800',
+                type: 'mentor',
+              },
+              {
+                id: '3',
+                name: '오기범',
+                priorityId: 'none',
+                imgSrc:
+                  'https://t1.kakaocdn.net/blockadmin/web/web2app/images/img_con_w2a.png',
+                type: 'mentor',
+              },
+              {
+                id: '4',
+                name: '이상건',
+                priorityId: 'none',
+                imgSrc:
+                  'https://item.kakaocdn.net/do/48dcfce971ba7d1cb927c1da339e5da1f43ad912ad8dd55b04db6a64cddaf76d',
+                type: 'mentor',
+              },
+              {
+                id: '5',
+                name: '이승철',
+                priorityId: 'none',
+                imgSrc:
+                  'https://item.kakaocdn.net/do/d97f27efd1d10d84215842e2e12752939f5287469802eca457586a25a096fd31',
+                type: 'mentor',
+              },
+              {
+                id: '8',
+                name: '민선유',
+                priorityId: 'W',
+                imgSrc:
+                  'https://file3.instiz.net/data/file3/2019/03/05/9/3/6/936e22b072692f903eef512aab276da0.jpg',
+                type: 'mentor',
+              },
+              {
+                id: '6',
+                name: '박상준',
+                priorityId: 'none',
+                imgSrc:
+                  'https://item.kakaocdn.net/do/d656a50c45c900cf6c99c3831c098df5f604e7b0e6900f9ac53a43965300eb9a',
+                type: 'mentor',
+              },
+              {
+                id: '7',
+                name: '신현주',
+                priorityId: 'W',
+                imgSrc: 'https://pbs.twimg.com/media/EHxVNWWUEAAYkTq.jpg',
+                type: 'mentor',
+              },
+              {
+                id: '9',
+                name: '권민석',
+                priorityId: 'G',
+                imgSrc: 'https://blog.kakaocdn.net/dn/NU1mG/btqH3ygrHJA/mBTmwQ9aJ38kFEykwhBZIK/img.png',
+                type: 'mentor',
+              },
+            ],
+            candidates: [
+              {
+                id: '1',
+                name: '루키기린TF',
+                priorityId: 'none',
+                imgSrc: './images/giraffe.png',
+                type: 'mentee',
+              },
+              {
+                id: '4',
+                name: '루키여우TF',
+                priorityId: 'none',
+                imgSrc: './images/fox.png',
+                type: 'mentee',
+              },
+              {
+                id: '2',
+                name: '루키하마TF',
+                priorityId: 'W',
+                imgSrc: './images/hippo.png',
+                type: 'mentee',
+              },
+              {
+                id: '3',
+                name: '루키토끼TF',
+                priorityId: 'W',
+                imgSrc: './images/rabbit.png',
+                type: 'mentee',
+              },
+              {
+                id: '5',
+                name: '루키사슴TF',
+                priorityId: 'W',
+                imgSrc: './images/deer.png',
+                type: 'mentee',
+              },
+              {
+                id: '6',
+                name: '루키사자TF',
+                priorityId: 'W',
+                imgSrc: './images/lion.png',
+                type: 'mentee',
+              },
+              {
+                id: '7',
+                name: '루키오리TF',
+                priorityId: 'G',
+                imgSrc: './images/duck.png',
+                type: 'mentee',
+              },
+              {
+                id: '8',
+                name: '루키백조TF',
+                priorityId: 'W',
+                imgSrc: './images/swan.png',
+                type: 'mentee',
+              },
+              {
+                id: '9',
+                name: '루키판다TF',
+                priorityId: 'W',
+                imgSrc: './images/panda.png',
+                type: 'mentee',
+              },
+            ],
+          };
+
+          var randomMatcher = new window.RandomMatcher('#app', data);
         </script>
     </body>
 </html>

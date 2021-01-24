@@ -9,10 +9,14 @@ export default class App {
 
   appState: AppState;
 
-  constructor(selector: string) {
+  constructor(selector: string, data: State) {
     this.appState = RootState;
     this.matcher = new Matcher(this.appState);
     this.ui = new UI(selector, this.appState, this.matcher);
+
+    if (data) {
+      this.setData(data);
+    }
 
     this.render();
   }
