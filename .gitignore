@@ -1,0 +1,48 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Dependency directory
+node_modules
+
+# Bower Components
+bower_components
+lib
+
+# Window
+Thumbs.db
+Desktop.ini
+
+# MAC
+.DS_Store
+
+# IDE
+.idea
+*.iml
+.project
+.metadata
+.tern-project
+.tern-port
+*.vim
+.\#*
+.vscode/
+
+# build
+build
+dist
+
+# etc
+.env.local

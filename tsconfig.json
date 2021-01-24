@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "module": "commonJS",
+    "strict": true,
+    "importHelpers": true,
+    "moduleResolution": "Node",
+    "experimentalDecorators": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2015",
+    "allowJs": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "types": ["node"],
+    "typeRoots": ["./types"],
+    "lib": ["esnext", "dom"],
+    "paths": {
+      "@/*": ["src/*"],
+      "@t/*": ["types/*"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "types/**/*"
+  ],
+  "exclude": ["node_modules"]
+}
