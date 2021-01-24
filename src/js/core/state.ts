@@ -21,7 +21,7 @@ export enum GroupProps {
   PRIORITY_ID = 'priorityId',
 }
 
-type State = {
+export type State = {
   groups: Groups;
   candidates: Groups;
   priorities: Priorities;
@@ -32,6 +32,7 @@ const defaultState = {
   groups: [],
   candidates: [],
   priorities: [],
+  results: [],
 };
 
 export class AppState {
@@ -39,6 +40,10 @@ export class AppState {
 
   clearState(): void {
     this.state = { ...defaultState };
+  }
+
+  setState(state: State): void {
+    this.state = state;
   }
 
   clearGroups(): void {

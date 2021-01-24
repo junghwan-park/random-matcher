@@ -1,6 +1,6 @@
 import Matcher, { MatchResults } from '@/js/core/matcher';
 import UI from '@/js/ui/ui';
-import State, { AppState } from '@/js/core/state';
+import RootState, { AppState, State } from '@/js/core/state';
 
 export default class App {
   matcher: Matcher | null = null;
@@ -10,11 +10,15 @@ export default class App {
   appState: AppState;
 
   constructor(selector: string) {
-    this.appState = State;
+    this.appState = RootState;
     this.matcher = new Matcher(this.appState);
     this.ui = new UI(selector, this.appState, this.matcher);
 
     this.render();
+  }
+
+  setData(state: State) {
+    this.appState.setState(state);
   }
 
   match(): MatchResults | void {
