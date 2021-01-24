@@ -57,7 +57,7 @@ module.exports = {
   },
 
   output: {
-    library: ['randomMatcher'],
+    library: ['RandomMatcher'],
     libraryTarget: 'umd',
     filename: 'matcher.js',
     publicPath: '/dist',
