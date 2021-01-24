@@ -72,12 +72,17 @@ export default class SettingPanel {
 
     this.textArea = document.createElement('textarea');
     this.textArea.className = 'data-field';
+    this.el.appendChild(this.textArea);
 
     this.confirmBtn = document.createElement('button');
     this.confirmBtn.className = 'confirm-btn';
+    this.confirmBtn.textContent = 'confirm';
+    this.el.appendChild(this.confirmBtn);
 
     this.cancelBtn = document.createElement('button');
     this.cancelBtn.className = 'cancel-btn';
+    this.cancelBtn.textContent = 'cancel';
+    this.el.appendChild(this.cancelBtn);
 
     this.bindEvents();
 

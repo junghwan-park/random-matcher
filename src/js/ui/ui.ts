@@ -21,6 +21,7 @@ export default class UI {
     }
 
     this.wrapperElement = wrapperElement;
+    this.wrapperElement.className = 'random-matcher';
 
     this.settingPanel = new SettingPanel(this.appState);
     this.gameArea = new GameArea(this.appState);

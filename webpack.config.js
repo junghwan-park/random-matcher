@@ -17,10 +17,7 @@ module.exports = {
   mode: 'development',
   entry: './src/js/index.ts',
 
-  plugins: [
-    new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin({ filename: 'main.[contenthash].css' }),
-  ],
+  plugins: [new webpack.ProgressPlugin(), new MiniCssExtractPlugin({ filename: 'matcher.css' })],
 
   module: {
     rules: [

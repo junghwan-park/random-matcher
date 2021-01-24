@@ -1,0 +1,47 @@
+.random-matcher {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .setting-panel {
+        display: flex;
+        width: 600px;
+        height: 600px;
+        border: 1px solid #000;
+
+        &.hide {
+            display: none;
+        }
+
+        .data-field {
+            height: 500px;
+            width: 90%;
+
+        }
+
+        .confirm-btn {
+
+        }
+
+        .cancel-btn {
+
+        }
+    }
+
+    .game-area {
+        flex: 1;
+        border: 1px solid #000;
+        .candidate-list,
+        .game-area {
+        }
+
+        .group-item {
+            .group-image {
+            }
+
+            .group-name {
+            }
+        }
+    }
+}
