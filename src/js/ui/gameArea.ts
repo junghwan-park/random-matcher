@@ -20,6 +20,8 @@ export default class GameArea {
 
   resultWrapper: HTMLDivElement | null = null;
 
+  creditWrapper: HTMLDivElement | null = null;
+
   couples: HTMLDivElement[] | [] = [];
 
   matchBtn: HTMLButtonElement | null = null;
@@ -41,16 +43,7 @@ export default class GameArea {
     this.el = document.createElement('div');
     this.el.className = 'game-area';
 
-    const { groups, candidates } = this.appState.state;
-
-    this.groupList = this.renderGroups(groups);
-    this.groupList.className = 'group-list';
-
-    this.candidateList = this.renderGroups(candidates);
-    this.candidateList.className = 'candidate-list';
-
-    this.el.appendChild(this.groupList);
-    this.el.appendChild(this.candidateList);
+    this.renderGrid();
 
     this.matchBtn = document.createElement('button');
     this.matchBtn.className = 'btn match-btn';
@@ -63,6 +56,19 @@ export default class GameArea {
     this.bindEvent();
 
     return this.el;
+  }
+
+  private renderGrid() {
+    const { groups, candidates } = this.appState.state;
+
+    this.groupList = this.renderGroups(groups);
+    this.groupList.className = 'group-list';
+
+    this.candidateList = this.renderGroups(candidates);
+    this.candidateList.className = 'candidate-list';
+
+    this.el!.appendChild(this.groupList);
+    this.el!.appendChild(this.candidateList);
   }
 
   renderGroups(groups: Groups): HTMLDivElement {
@@ -122,6 +128,11 @@ export default class GameArea {
   }
 
   onClickMatch = (): void => {
+    if (this.creditWrapper) {
+      this.el?.removeChild(this.creditWrapper);
+      this.renderGrid();
+    }
+
     this.matcher.match();
     this.matchBtn?.classList.add('hide');
 
@@ -165,10 +176,47 @@ export default class GameArea {
   };
 
   onClickClose = (): void => {
+    this.nextBtn?.classList.remove('hide');
+    this.closeBtn?.classList.add('hide');
     this.resultWrapper?.classList.add('hide');
+    this.matchBtn?.classList.remove('hide');
+    this.matchBtn?.classList.add('re-match');
+
+    this.matchBtn!.textContent = 'Re-Match (optional)';
+
+    const prevCoupleElement = document.getElementById(getCoupleElId(this.coupleIndex));
+
+    if (prevCoupleElement) {
+      this.resultWrapper?.removeChild(prevCoupleElement);
+    }
+
+    this.coupleIndex = 0;
+
+    this.renderResultCredit();
   };
 
-  bindEvent() {
+  renderResultCredit(): void {
+    if (this.groupList) {
+      this.el!.removeChild(this.groupList);
+    }
+    if (this.candidateList) {
+      this.el!.removeChild(this.candidateList);
+    }
+
+    this.el?.classList.add('result-credit');
+
+    const { results } = this.appState.state;
+    this.creditWrapper = document.createElement('div');
+    this.creditWrapper.className = 'credit-wrapper';
+
+    this.el?.appendChild(this.creditWrapper);
+
+    results.forEach((idPair, index) =>
+      this.creditWrapper!.appendChild(this.renderResultPanel(idPair, index))
+    );
+  }
+
+  bindEvent(): void {
     this.matchBtn?.addEventListener('click', this.onClickMatch);
     this.nextBtn?.addEventListener('click', this.onClickNext);
     this.closeBtn?.addEventListener('click', this.onClickClose);
