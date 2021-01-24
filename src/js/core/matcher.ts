@@ -33,25 +33,27 @@ export default class Matcher {
     let candidates: Groups = [...this.candidates];
 
     this.priorities.forEach(({ id }) => {
-      const filteredGroups = this.filterByPriority(groups, id);
-      const filteredCandidates = this.filterByPriority(candidates, id);
+      const filteredGroups = this.filterByPriority(this.shuffle(groups), id);
+      const filteredCandidates = sampleSize(
+        this.filterByPriority(this.shuffle(candidates), id),
+        filteredGroups.length
+      );
 
-      results.push(...this.mapResult(filteredGroups, filteredCandidates));
+      results.push(
+        ...this.mapResult(this.shuffle(filteredGroups), this.shuffle(filteredCandidates))
+      );
 
       const groupIds = filteredGroups.map((group): { id: string } => ({
         id: group.id,
       }));
       groups = differenceBy(groups, groupIds, 'id') as Groups;
 
-      const candidateIds = sampleSize(
-        filteredCandidates.map((group) => ({ id: group.id })),
-        groupIds.length
-      );
+      const candidateIds = filteredCandidates.map((group) => ({ id: group.id }));
       candidates = differenceBy(candidates, candidateIds, 'id') as Groups;
     });
 
     if (groups.length > 0) {
-      results.push(...this.mapResult(groups, candidates));
+      results.push(...this.mapResult(this.shuffle(groups), this.shuffle(candidates)));
     }
 
     return results;
@@ -62,13 +64,12 @@ export default class Matcher {
   }
 
   matchSimple(groups: Groups, candidates: Groups): MatchResults {
-    return this.mapResult(this.shuffle(groups), candidates);
+    return this.mapResult(this.shuffle(groups), this.shuffle(candidates));
   }
 
-  private shuffle(groups: Array<Group>) {
+  private shuffle(groups: Groups): Groups {
     let result = groups;
     const iterationCount = random(1, 64, false);
-    console.log(iterationCount);
 
     for (let i = 0; i <= iterationCount; i += 1) {
       result = shuffle(groups);
@@ -96,6 +97,7 @@ export default class Matcher {
     }
 
     this.appState.state.results = results;
+    console.log(results);
 
     return results;
   }
