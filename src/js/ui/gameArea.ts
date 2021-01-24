@@ -26,7 +26,7 @@ export default class GameArea {
     this.groupList.className = 'group-list';
 
     this.candidateList = this.renderGroups(candidates);
-    this.groupList.className = 'candidate-list';
+    this.candidateList.className = 'candidate-list';
 
     this.el.appendChild(this.groupList);
     this.el.appendChild(this.candidateList);

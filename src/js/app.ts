@@ -1,4 +1,4 @@
-import Matcher from '@/js/core/matcher';
+import Matcher, { MatchResults } from '@/js/core/matcher';
 import UI from '@/js/ui/ui';
 import State, { AppState } from '@/js/core/state';
 
@@ -15,6 +15,10 @@ export default class App {
     this.ui = new UI(selector, this.appState);
 
     this.render();
+  }
+
+  match(): MatchResults | void {
+    return this.matcher?.match();
   }
 
   private render(): void {

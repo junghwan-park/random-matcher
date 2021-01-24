@@ -25,8 +25,6 @@ export default class UI {
 
     this.settingPanel = new SettingPanel(this.appState);
     this.gameArea = new GameArea(this.appState);
-
-    this.render();
   }
 
   render(): void {

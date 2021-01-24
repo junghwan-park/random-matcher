@@ -20,10 +20,12 @@ export default class GroupItem {
     this.imageEl = document.createElement('img');
     this.imageEl.className = 'group-image';
     this.imageEl.src = this.group.imgSrc;
+    this.el.appendChild(this.imageEl);
 
     this.nameEl = document.createElement('div');
     this.nameEl.className = 'group-name';
     this.nameEl.textContent = this.group.name;
+    this.el.appendChild(this.nameEl);
 
     return this.el;
   }
