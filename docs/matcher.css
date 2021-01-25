@@ -72,6 +72,7 @@
       .random-matcher .game-area .group-item .group-image {
         background-color: #fff;
         min-width: 174px;
+        width: 100%;
         border-radius: 50%; }
       .random-matcher .game-area .group-item .group-name {
         width: 100%;
